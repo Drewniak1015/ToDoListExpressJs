@@ -6,8 +6,8 @@ const Tasks = require("./models/Task");
 app.use(express.static("public"));
 app.use(express.static("images"));
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true })); // aby działał post z formularza
-app.use(express.json()); // aby dorwać sie do body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 mongoose
   .connect("mongodb://localhost/ToDoList")
   .then(() => {
