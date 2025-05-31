@@ -31,7 +31,9 @@
         <% TaskList.forEach(element => { %>
         <div class="Task">
           <div class="taskname">
-            <input type="checkbox" />
+            <input type="checkbox" <% if(element.checked === true) { %> checked
+            <% } %> class="checkboxClass" data-id="<%= element.id %>"
+            name="checked"/>
             <h2><%=element.Title%></h2>
           </div>
 
@@ -55,9 +57,16 @@
           e.preventDefault();
           const id = link.dataset.id;
           const res = await fetch(`/Tasks/${id}`, { method: "DELETE" });
-          if (res.ok) location.reload();
         };
       });
+      document.querySelectorAll(
+        "checkboxClass".forEach((elem) => {
+          elem.onclick = async () => {
+            const id = link.dataset.id;
+            const res = await fetch(`/Tasks/${id}`, { method: "post" });
+          };
+        })
+      );
     </script>
   </body>
 </html>

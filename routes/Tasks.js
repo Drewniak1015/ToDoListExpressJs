@@ -30,5 +30,18 @@ router.post("/", async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+router.post("/:id", async (req, res) => {
+  const id = req.params.id;
+  const newCheckedValue = req.body.checked;
+
+  try {
+    await Tasks.findByIdAndUpdate(id, {
+      checked: newCheckedValue,
+    });
+    res.json({ success: true });
+  } catch (er) {
+    res.status(400).json({ error: er.message });
+  }
+});
 
 module.exports = router;
