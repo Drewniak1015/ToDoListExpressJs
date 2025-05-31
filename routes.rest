@@ -1,0 +1,11 @@
+Get http://localhost:3000/Tasks
+###
+POST http://localhost:3000
+Content-Type: application/json
+
+{
+    "Title":"Zadanie2"
+}
+###
+DELETE http://localhost:3000/Tasks/683b17b5eb8bacccaaf00c58
+###

@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: rgb(220, 245, 250);
+  background: linear-gradient(
+    159deg,
+    rgba(220, 245, 250, 1) 0%,
+    rgba(160, 210, 235, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+img {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  transition: 200ms;
+}
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  min-height: 15.7rem;
+  width: 18rem;
+  padding: 0.5rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+}
+.container-edit {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  min-height: 7.8rem;
+  width: 18rem;
+  padding: 0.5rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+}
+input[type="text"] {
+  border: 1px solid hsl(0, 0%, 83%);
+  border-radius: 5px;
+  transition: 200ms;
+  outline: none;
+  width: 80%;
+  padding: 0.4rem;
+}
+input[type="text"]:focus {
+  border: 1px solid hsl(0, 0%, 73%);
+}
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid hsl(0, 0%, 73%);
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  margin-left: 0.5rem;
+}
+input[type="checkbox"]:checked {
+  background-color: hsl(146, 50%, 42%);
+  padding: 0.2rem;
+  border: 2px solid hsl(146, 50%, 42%);
+}
+
+input[type="checkbox"]:checked::before {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+button {
+  background-color: hsl(146, 50%, 42%);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 0.4rem;
+  width: 30%;
+  transition: 200ms;
+  cursor: pointer;
+}
+button:hover {
+  background-color: hsl(146, 50%, 32%);
+}
+form {
+  display: flex;
+  gap: 5px;
+  margin: 0.75rem 0;
+  margin-bottom: 1rem;
+}
+h1 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin: 0.75rem 0;
+}
+.Task {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  height: 2rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+h2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.icons,
+.taskname {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.icons {
+  margin-right: 0.5rem;
+  height: 100%;
+}
+.menu {
+  height: 100%;
+  border-left: 1px solid hsl(0, 0%, 73%);
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  transition: 200ms;
+}
+a:hover {
+  scale: 1.4;
+}

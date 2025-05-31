@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title"><h1>&#10003; Moja Lista Zadań</h1></div>
+
+      <form action="/Tasks" method="post">
+        <input
+          type="text"
+          placeholder="Dodaj nowe zadanie..."
+          name="NewTask"
+          required
+          minlength="4"
+        />
+        <button>+ Dodaj</button>
+      </form>
+
+      <div>
+        <% TaskList.forEach(element => { %>
+        <div class="Task">
+          <div class="taskname">
+            <input type="checkbox" />
+            <h2><%=element.Title%></h2>
+          </div>
+
+          <div class="icons">
+            <a href="Edit/<%= element.id %>">
+              <img src="/pencil-svgrepo-com.svg" alt="" />
+            </a>
+            <div class="menu">
+              <a href="#" class="delete-task" data-id="<%= element.id %>">
+                <img src="/icons8-delete.svg" alt="Usuń" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll(".delete-task").forEach((link) => {
+        link.onclick = async (e) => {
+          e.preventDefault();
+          const id = link.dataset.id;
+          const res = await fetch(`/Tasks/${id}`, { method: "DELETE" });
+          if (res.ok) location.reload();
+        };
+      });
+    </script>
+  </body>
+</html>
